@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        Graphics a;
+        Point click;
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            a = CreateGraphics();
+            a.Clear(Color.White);
+            
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            click = e.Location;
+            a.DrawRectangle(Pens.Black, click.X , click.Y , 100, 100);
+            a.DrawRectangle(Pens.Black, click.X + 30, click.Y + 20, 100, 100);
+            a.DrawLine(Pens.Black, click.X, click.Y, click.X+30, click.Y + 20);
+            a.DrawLine(Pens.Black, click.X+100, click.Y+100, click.X+130, click.Y + 120);
+            a.DrawLine(Pens.Black, click.X+100, click.Y, click.X+130, click.Y + 20);
+            a.DrawLine(Pens.Black, click.X, click.Y+100, click.X+30, click.Y + 120);
+        }
+    }
+}
